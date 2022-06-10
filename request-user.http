@@ -1,0 +1,27 @@
+### Create User
+POST http://localhost:8800/api/users
+Content-Type: application/json
+
+{
+    "email": "john@gmail.com",
+    "password": "qwerty123",
+    "passwordConfirmation": "qwerty123",
+    "name": "John"
+}
+
+### Login
+POST http://localhost:8800/api/sessions
+Content-Type: application/json
+
+{
+    "email": "john@gmail.com",
+    "password": "qwerty123"
+}
+
+### get User's Sessions
+GET http://localhost:8800/api/sessions
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmEyZGQxZjlmOTUyN2JmYzQ0NDUxNWMiLCJlbWFpbCI6ImpvaG5AZ21haWwuY29tIiwibmFtZSI6IkpvaG4iLCJjcmVhdGVkQXQiOiIyMDIyLTA2LTEwVDA1OjU2OjQ3LjcwOFoiLCJ1cGRhdGVkQXQiOiIyMDIyLTA2LTEwVDA1OjU2OjQ3LjcwOFoiLCJfX3YiOjAsInNlc3Npb24iOiI2MmEzMjdlMTJjMjJkNjU5ODNmMWYwM2QiLCJpYXQiOjE2NTQ4NTk3NDYsImV4cCI6MTY1NDg2MDY0Nn0.gPNSEwQwmReynOksK_2fBzJBZhNQxZuFeGppcu44w-Q
+
+### logout
+DELETE http://localhost:8800/api/sessions
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmEyZGQxZjlmOTUyN2JmYzQ0NDUxNWMiLCJlbWFpbCI6ImpvaG5AZ21haWwuY29tIiwibmFtZSI6IkpvaG4iLCJjcmVhdGVkQXQiOiIyMDIyLTA2LTEwVDA1OjU2OjQ3LjcwOFoiLCJ1cGRhdGVkQXQiOiIyMDIyLTA2LTEwVDA1OjU2OjQ3LjcwOFoiLCJfX3YiOjAsInNlc3Npb24iOiI2MmEzMjdlMTJjMjJkNjU5ODNmMWYwM2QiLCJpYXQiOjE2NTQ4NTk3NDYsImV4cCI6MTY1NDg2MDY0Nn0.gPNSEwQwmReynOksK_2fBzJBZhNQxZuFeGppcu44w-Q
