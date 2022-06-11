@@ -7,7 +7,7 @@ export const createUser = async (input: DocumentDefinition<UserDocument>) => {
 	try {
 		return await User.create(input);
 	} catch (error) {
-		throw new Error(error as string);
+		throw new Error(error as any);
 	}
 };
 
@@ -18,7 +18,7 @@ export async function findUser(query: FilterQuery<UserDocument>) {
 	return User.findOne(query).lean();
 }
 
-export const validatePassword = async ({
+export const validateUser = async ({
 	email,
 	password,
 }: {
@@ -36,9 +36,3 @@ export const validatePassword = async ({
 	return omit(user.toJSON(), 'password');
 };
 
-export const updateSession = async (
-	query: FilterQuery<SessionDocument>,
-	update: UpdateQuery<SessionDocument>,
-) => {
-	
-};

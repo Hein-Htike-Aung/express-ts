@@ -1,15 +1,13 @@
-import { UserDocument } from './../models/user.model';
-import { Request, Response } from 'express';
 import config from 'config';
-import { sign } from '../../utils/jwt.utils';
-import { SessionDocument } from '../models/sessoin.model';
+import { Request, Response } from 'express';
 import { get } from 'lodash';
-import { updateSession, validatePassword } from '../services/user.service';
-import { createAccessToken, createSession, findSessions } from '../services/sesson.service';
+import { sign } from '../../utils/jwt.utils';
+import { createAccessToken, createSession, findSessions, updateSession } from '../services/sesson.service';
+import { validateUser } from '../services/user.service';
 
 export const createUserSessionHandler = async (req: Request, res: Response) => {
 	// validate the email and password
-	const user = await validatePassword(req.body);
+	const user = await validateUser(req.body);
 
 	if (!user) {
 		return res.status(401).send('Invalid username or password');

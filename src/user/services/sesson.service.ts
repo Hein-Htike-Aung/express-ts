@@ -1,6 +1,6 @@
 import { SessionDocument } from './../models/sessoin.model';
 import config from 'config';
-import { LeanDocument, FilterQuery } from 'mongoose';
+import { LeanDocument, FilterQuery, UpdateQuery } from 'mongoose';
 import Session from '../models/sessoin.model';
 import { UserDocument } from '../models/user.model';
 import { get } from 'lodash';
@@ -49,6 +49,13 @@ export const reIssueAccessToken = async ({
 
 	return accessToken;
 };
+
+export async function updateSession(
+	query: FilterQuery<SessionDocument>,
+	update: UpdateQuery<SessionDocument>,
+) {
+	return Session.updateOne(query, update);
+}
 
 export const findSessions = (query: FilterQuery<SessionDocument>) => {
 	return Session.find(query).lean();

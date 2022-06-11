@@ -31,7 +31,7 @@ export const updatePostHandler = async (req: Request, res: Response) => {
 	const updatedPost = await findAndUpdate({ postId }, update, { new: true });
 
 	return res.send(updatedPost);
-};
+};	
 
 export const deletePostHandler = async (req: Request, res: Response) => {
 	const postId = get(req, 'params.postId');
